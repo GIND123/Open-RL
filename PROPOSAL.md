@@ -20,7 +20,7 @@ Instella's post-training was instruction tuning. Today's strongest open reasonin
 
 Three pieces are already done:
 - A SymPy-verified generator of flawed and solvable word problems.
-- A verifiers environment (`premise-verify-eval`) with 4,939 items, ready for the Hub.
+- A verifiers environment with 4,939 items, live on the Environments Hub as [`shreeyadasa/premise-verify-eval`](https://app.primeintellect.ai/dashboard/environments/shreeyadasa/premise-verify-eval). Install it with `prime env install shreeyadasa/premise-verify-eval`.
 - A pilot on a GPU. On Qwen3-1.7B the environment reproduces the workshop pattern: discrimination is +45.8 points under a prompt that permits abstention, and the decline rate is 0% under answer forcing. The pilot also shows that the model often names a contradiction in its reasoning and then answers anyway.
 
 **What we ask of Prime Intellect:**
@@ -174,7 +174,7 @@ Week 1 starts 26 October 2026.
 
 | Phase | Weeks | Work | Output |
 |---|---|---|---|
-| A | 1–2 | Full `eval_v0` (4,939 items × 4 rollouts) on INTELLECT-3 and GLM-4.5-Air, `permit` and `force`. Push `premise-verify-eval` to the Hub, pinned to the `eval_v0` SHA-256. | Two-page results note (RQ1, first look at RQ2). Public Hub environment. |
+| A | 1–2 | Full `eval_v0` (4,939 items × 4 rollouts) on INTELLECT-3 and GLM-4.5-Air, `permit` and `force`. Pin the Hub environment (live since 23 October) to the `eval_v0` SHA-256 in the results note. | Two-page results note (RQ1, first look at RQ2). Public Hub environment. |
 | Audit | 3–6 | 400-item blind label audit by two annotators, κ ≥ 0.8. Fix any template behind a disagreement and rebuild. | Audited `eval_v1` |
 | B | after audit | Judge pass from a third model family, validated on 500 human-labelled responses. Hidden-state probes on a small model. Token-based length control. | RQ3 measurements |
 | C | after B | `premise_verify_train` environment. prime-rl configs for C0–C4 × seeds, checkpoint every 25 steps. Contamination audit against the INTELLECT-3 RL math environment, the Nemotron math SFT split, the AM distilled set and GSM8K. | RQ4 results |
@@ -193,7 +193,7 @@ Week 1 starts 26 October 2026.
 
 ## 8. What Prime Intellect gets
 
-- `premise-verify-eval` on the Environments Hub. It is a verifiers v1 environment with a SymPy-verified 4,939-item set, two prompt modes, and metrics that sit alongside accuracy: decline rate, discrimination, net score.
+- `shreeyadasa/premise-verify-eval` on the Environments Hub (already live). It is a verifiers v1 environment with a SymPy-verified 4,939-item set, two prompt modes, and metrics that sit alongside accuracy: decline rate, discrimination, net score.
 - A premise-verification audit of INTELLECT-3 against its base family, with intervals.
 - A training environment and reward schemes that can be dropped into prime-rl. If RQ4 succeeds, the result is a recipe for RL that keeps the check.
 - All data, configs and traces released openly.

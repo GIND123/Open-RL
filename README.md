@@ -9,7 +9,7 @@ Reasoning post-training can make a model better at solving problems while it get
 | Component | State |
 |---|---|
 | Item generator with SymPy-verified labels (`premise_verify/`) | Done |
-| Evaluation environment on verifiers 0.4.0, with a bundled 4,939-item set (`environments/premise_verify_eval/`) | Done; piloted on Qwen3-1.7B, 300 items × 2 prompt modes ([results](results/phase_a_pilot/RESULTS.md)) |
+| Evaluation environment on verifiers 0.4.0, with a bundled 4,939-item set (`environments/premise_verify_eval/`) | Done; public on the Environments Hub as [`shreeyadasa/premise-verify-eval`](https://app.primeintellect.ai/dashboard/environments/shreeyadasa/premise-verify-eval); piloted on Qwen3-1.7B, 300 items × 2 prompt modes ([results](results/phase_a_pilot/RESULTS.md)) |
 | GPU runners for self-hosted models (`scripts/lambda_pilot.sh`, `scripts/modal_eval.py`) and pilot tables (`scripts/summarize_pilot.py`) | Done |
 | Metrics from the workshop paper, with cluster bootstrap (`premise_verify/metrics.py`) | Done |
 | Blind manual label audit with Cohen's kappa (`premise_verify/audit.py`) | Done; annotation not started |

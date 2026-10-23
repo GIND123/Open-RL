@@ -19,8 +19,8 @@ Steps are in order. The weeks follow the proposal timeline, with week 1 starting
 
 ## 2. Publish the eval environment
 
-- [ ] Look up the current push command in the Prime docs, then push `environments/premise_verify_eval` to the Environments Hub.
-- [ ] Pin the version, and record the `eval_v0` SHA-256 from `eval_v0.report.json` in the note.
+- [x] Look up the current push command in the Prime docs, then push `environments/premise_verify_eval` to the Environments Hub. Live on 23 October as public [`shreeyadasa/premise-verify-eval`](https://app.primeintellect.ai/dashboard/environments/shreeyadasa/premise-verify-eval) v0.1.0, pushed with `prime env push --visibility PUBLIC`. A clean `prime env install` loads all 4,939 tasks.
+- [ ] Pin the version, and record the `eval_v0` SHA-256 from `eval_v0.report.json` in the note: `eval_v0` is `90b0efc183b474b6562fd66e90b482e7936531f876d162937be73d138310c76a`, and the v0.1.0 wheel is `05f1a777b4897738b14f192c959174af4c8ad5088e142f95b222257c6e66f4fe`. Cite `shreeyadasa/premise-verify-eval@0.1.0` in the note.
 
 ## 3. Label audit (weeks 3–6)
 
