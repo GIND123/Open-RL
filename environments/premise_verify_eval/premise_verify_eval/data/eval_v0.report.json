@@ -1,0 +1,110 @@
+{
+  "config": {
+    "seed": 0,
+    "cells": [
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        8,
+        6
+      ]
+    ],
+    "widths": [
+      0,
+      2,
+      4
+    ],
+    "magnitudes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "templates_per_cell": 2,
+    "instances_per_template": 3,
+    "deletions_per_parent": 2,
+    "flaws": [
+      "delete",
+      "contradict",
+      "unrealistic",
+      "ambiguate"
+    ],
+    "controls": true,
+    "pad": "group",
+    "delete_query": false
+  },
+  "templates": 252,
+  "parents": 754,
+  "items": 4939,
+  "by_label": {
+    "solvable": 1258,
+    "underdetermined": 2230,
+    "inconsistent": 754,
+    "unrealistic": 697
+  },
+  "by_flaw": {
+    "original": 754,
+    "delete": 1504,
+    "contradict": 754,
+    "unrealistic": 697,
+    "ambiguate": 726,
+    "drop_distractor": 504
+  },
+  "discarded": {
+    "ambiguate:answer_in_text": 6,
+    "ambiguate:solvable": 22,
+    "delete:solvable": 4,
+    "unrealistic:answer_in_text": 5,
+    "instance:no_values": 2
+  },
+  "sha256": "90b0efc183b474b6562fd66e90b482e7936531f876d162937be73d138310c76a"
+}
