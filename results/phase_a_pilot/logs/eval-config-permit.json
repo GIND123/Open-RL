@@ -1,0 +1,106 @@
+{
+  "env": {
+    "taskset": {
+      "task": {
+        "judges": [],
+        "stops": {},
+        "metrics": {},
+        "rewards": {}
+      },
+      "system_prompt": null,
+      "id": "premise-verify-eval",
+      "data_path": null,
+      "prompt_mode": "permit",
+      "flaws": null
+    },
+    "timeout": {
+      "episode": null,
+      "finalize": null
+    },
+    "retries": {
+      "max_retries": 0,
+      "rules": []
+    },
+    "max_concurrent_agents": 1,
+    "interception": {
+      "type": "elastic",
+      "multiplex": 32
+    },
+    "id": "",
+    "agent": {
+      "harness": null,
+      "runtime": {
+        "type": "subprocess"
+      },
+      "model": null,
+      "client": null,
+      "sampling": null,
+      "max_turns": null,
+      "max_input_tokens": null,
+      "max_output_tokens": null,
+      "max_total_tokens": null,
+      "timeout": {
+        "setup": null,
+        "rollout": null,
+        "finalize": null,
+        "scoring": null
+      },
+      "retries": {
+        "max_retries": 0,
+        "rules": []
+      },
+      "network_notice": true
+    }
+  },
+  "run": {
+    "name": "premise-verify-eval--qwen--qwen3-1.7b--premise-verify-eval--b25ac5c1",
+    "dir": "premise-verify-eval--qwen--qwen3-1.7b--premise-verify-eval--b25ac5c1",
+    "attach": null
+  },
+  "model": "Qwen/Qwen3-1.7B",
+  "client": {
+    "base_url": "http://localhost:8000/v1",
+    "api_key_var": "VLLM_API_KEY_DUMMY",
+    "headers": {},
+    "headers_from_env": {},
+    "timeout": {
+      "connect": 30.0,
+      "read": null,
+      "write": null,
+      "pool": null
+    },
+    "type": "eval"
+  },
+  "sampling": {
+    "temperature": null,
+    "top_p": null,
+    "reasoning_effort": null,
+    "max_tokens": 16384
+  },
+  "select": {
+    "include": {
+      "idx": [],
+      "ids": [],
+      "keys": [],
+      "names": []
+    },
+    "exclude": {
+      "idx": [],
+      "ids": [],
+      "keys": [],
+      "names": []
+    },
+    "shuffle": true,
+    "seed": 0,
+    "skip": 0,
+    "limit": 300
+  },
+  "num_rollouts": 1,
+  "max_concurrent": 64,
+  "verbose": false,
+  "rich": {
+    "show_logs": false
+  },
+  "push": false,
+  "output_dir": "/home/ubuntu/results/pilot-permit"
+}

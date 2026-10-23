@@ -44,6 +44,8 @@ uv run vf-eval premise-verify-eval -m <model> --env.taskset.flaws delete none   
 
 `vf-eval` uploads finished runs to the Prime Intellect platform unless you pass `--no-push`.
 
+Without a Prime account, add `--env.agent.runtime.type subprocess`. Otherwise the harness is provisioned in a Prime sandbox, which exits when `PRIME_API_KEY` is unset. Reasoning models need `--sampling.max-tokens 16384` or more, because truncated responses never reach a decision.
+
 The environment bundles a plain-chat harness, so the model gets no tools. A code-running harness would give it a calculator and change the task.
 
 verifiers imports `fcntl`, so run the environment on Linux, macOS, or WSL.

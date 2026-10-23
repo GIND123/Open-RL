@@ -1,0 +1,31 @@
+{
+ "n": 300,
+ "decline_flawed": 0.0,
+ "decline_solvable": 0.0,
+ "solvable_accuracy": 0.9523809523809523,
+ "discrimination": {
+  "estimate": 0.0,
+  "ci": [
+   0.0,
+   0.0
+  ]
+ },
+ "balanced_accuracy": {
+  "estimate": 0.5,
+  "ci": [
+   0.5,
+   0.5
+  ]
+ },
+ "depth_gap": {
+  "estimate": 0.0,
+  "ci": [
+   0.0,
+   0.0
+  ]
+ },
+ "n_rollouts": 300,
+ "truncated_rate": 0.01,
+ "no_decision_rate": 0.01,
+ "completion_tokens_median": 6635.0
+}

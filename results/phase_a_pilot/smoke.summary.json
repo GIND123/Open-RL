@@ -1,0 +1,31 @@
+{
+ "n": 10,
+ "decline_flawed": 0.5714285714285714,
+ "decline_solvable": 0.0,
+ "solvable_accuracy": 1.0,
+ "discrimination": {
+  "estimate": 0.5714285714285714,
+  "ci": [
+   0.75,
+   0.6666666666666666
+  ]
+ },
+ "balanced_accuracy": {
+  "estimate": 0.7857142857142857,
+  "ci": [
+   0.875,
+   0.8333333333333333
+  ]
+ },
+ "depth_gap": {
+  "estimate": 0.04411764705882353,
+  "ci": [
+   0.08391608391608392,
+   NaN
+  ]
+ },
+ "n_rollouts": 10,
+ "truncated_rate": 0.0,
+ "no_decision_rate": 0.0,
+ "completion_tokens_median": 4704.0
+}

@@ -1,5 +1,7 @@
 # Premise verification under open RL
 
+**Start here:** [PROPOSAL.md](PROPOSAL.md) is the research proposal; [results/phase_a_pilot/RESULTS.md](results/phase_a_pilot/RESULTS.md) has the first GPU results.
+
 Reasoning post-training can make a model better at solving problems while it gets worse at noticing that a problem cannot be solved. This repository holds the evaluation suite, and later the training environments and analysis code, for studying that trade-off on Prime Intellect's open RL stack (verifiers, prime-rl, INTELLECT-3). It extends *Reasoning Depth Erodes the Premise Verification That Post Training Builds* (Arun and Lakshminath, NeurIPS 2026 MATH-AI Workshop).
 
 ## Status
@@ -7,7 +9,8 @@ Reasoning post-training can make a model better at solving problems while it get
 | Component | State |
 |---|---|
 | Item generator with SymPy-verified labels (`premise_verify/`) | Done |
-| Evaluation environment on verifiers 0.4.0, with a bundled 4,939-item set (`environments/premise_verify_eval/`) | Done; not yet run against a live model |
+| Evaluation environment on verifiers 0.4.0, with a bundled 4,939-item set (`environments/premise_verify_eval/`) | Done; piloted on Qwen3-1.7B, 300 items × 2 prompt modes ([results](results/phase_a_pilot/RESULTS.md)) |
+| GPU runners for self-hosted models (`scripts/lambda_pilot.sh`, `scripts/modal_eval.py`) and pilot tables (`scripts/summarize_pilot.py`) | Done |
 | Metrics from the workshop paper, with cluster bootstrap (`premise_verify/metrics.py`) | Done |
 | Blind manual label audit with Cohen's kappa (`premise_verify/audit.py`) | Done; annotation not started |
 | Reward schemes for the RQ4 grader ablation (`scoring.scheme_reward`) | Done; training environment not built |
@@ -29,6 +32,12 @@ premise_verify/            generator and analysis (pure Python + SymPy)
   audit.py                 blind stratified audit sheets and agreement scoring
 environments/
   premise_verify_eval/     verifiers taskset plus bundled data (Hub package)
+scripts/
+  lambda_pilot.sh          serve a model with vLLM on one GPU and run the pilot phases
+  modal_eval.py            the same on Modal
+  summarize_pilot.py       result tables from permit and force traces
+results/
+  phase_a_pilot/           Qwen3-1.7B pilot: report, tables, traces, logs
 tests/
 ```
 
@@ -44,8 +53,11 @@ verifiers imports `fcntl`, so the environment and its tests need Linux, macOS, o
 
 Evaluate, then summarize. `traces.jsonl` is written under the run directory in `outputs/`:
 
+`--env.agent.runtime.type subprocess` runs the plain-chat harness locally. Without it, verifiers 0.4.0 provisions a Prime sandbox and exits unless `PRIME_API_KEY` is set. Give reasoning models at least 16k completion tokens; at 8k the pilot truncated 20% of responses.
+
 ```bash
-vf-eval premise-verify-eval -m <model> -r 4 --env.taskset.prompt-mode permit --no-push
+vf-eval premise-verify-eval -m <model> -r 4 --env.taskset.prompt-mode permit \
+  --env.agent.runtime.type subprocess --sampling.max-tokens 16384 --no-push
 python -c "
 from pathlib import Path
 from premise_verify.metrics import records_from_traces, summarize
@@ -101,4 +113,4 @@ A variant is kept only if its verified label matches its edit. Edits that the co
 - Length is controlled in words, not tokenizer tokens.
 - Surface variety is 8 themes with 2 phrasings per operation type. The judge-validated audit will show whether that is enough.
 - `unrealistic` covers only impossible counts (negative or fractional), not implausible values.
-- `records_from_traces` assumes one episode per line of `traces.jsonl`. Check it against the first real run.
+- `records_from_traces` assumes one episode per line of `traces.jsonl`. The pilot confirmed this against verifiers 0.4.0 output.

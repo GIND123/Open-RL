@@ -1,0 +1,15 @@
+PHASE setup START 18:05:27
+NVIDIA A10, 570.148.08, 23028 MiB
+PHASE setup DONE 18:05:27
+PHASE vllm START 18:05:27
+PHASE vllm DONE 18:06:42
+PHASE smoke START 18:06:42 n=10 mode=permit
+{"n": 10, "n_rollouts": 10, "truncated_rate": 0.0, "no_decision_rate": 0.0}
+PHASE smoke DONE 18:09:20
+PHASE pilot-permit START 18:09:20 n=300 mode=permit
+{"n": 300, "n_rollouts": 300, "truncated_rate": 0.01, "no_decision_rate": 0.02666666666666667}
+PHASE pilot-permit DONE 18:45:01
+PHASE pilot-force START 18:45:01 n=300 mode=force
+{"n": 300, "n_rollouts": 300, "truncated_rate": 0.01, "no_decision_rate": 0.01}
+PHASE pilot-force DONE 19:38:37
+PILOT COMPLETE 19:38:37
